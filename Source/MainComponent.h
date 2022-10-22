@@ -17,6 +17,7 @@ public:
         double posX{ 0.0 };
         double posY{ 0.0 };
         std::string type{ "Mouse" };
+        juce::Colour colour{juce::Colours::orange};
     };
 
     //==============================================================================
@@ -40,6 +41,8 @@ private:
     int posY{0};
 
     std::vector<MouseState> mouseState;
+
+    juce::Random randomGen;
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

@@ -29,7 +29,7 @@ void MainComponent::paint(juce::Graphics& g)
 			auto x = static_cast<int>(std::round(ms.posX * area.getWidth()));
 			auto y = static_cast<int>(std::round(ms.posY * area.getHeight()));
 
-			g.setColour(juce::Colours::orange);
+			g.setColour(ms.colour);
 			g.fillEllipse(x - 25, y - 25, 50, 50);
 
 			g.drawSingleLineText(ms.type + " #" + std::to_string(ms.index + 1), x, y - 40);
@@ -58,6 +58,7 @@ void MainComponent::mouseDown(const juce::MouseEvent& event)
 			mouseState.resize(idx + 1);
 			mouseState[idx].type = "Touch";
 			mouseState[idx].index = event.source.getIndex();
+			mouseState[idx].colour = juce::Colour::fromFloatRGBA(randomGen.nextFloat(), randomGen.nextFloat(), randomGen.nextFloat(), 1.0);
 		}
 		break;
 	case juce::MouseInputSource::pen:
