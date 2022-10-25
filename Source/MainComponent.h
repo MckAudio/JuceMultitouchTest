@@ -14,10 +14,11 @@ public:
     struct MouseState {
         bool active{ false };
         int index{ 0 };
-        double posX{ 0.0 };
-        double posY{ 0.0 };
+        Point<int> start{ 0, 0 };
+        double pressure { 0.0 };
         std::string type{ "Mouse" };
         juce::Colour colour{juce::Colours::orange};
+        std::vector<Point<int>> path;
     };
 
     //==============================================================================
